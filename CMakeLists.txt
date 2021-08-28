@@ -15,6 +15,7 @@ option(PCG_CPP_INSTALL "Install PCG-CPP" ON)
 
 add_library(pcg-cpp INTERFACE)
 # Add alias to make more friendly with FetchConent
+add_library(PCG_CXX ALIAS pcg-cpp)
 add_library(PCG::PCG_CXX ALIAS pcg-cpp)
 
 # Add public interface includes directory
@@ -40,6 +41,8 @@ endif()
 
 # Install PCG-CPP
 if(PCG_CPP_INSTALL)
+  include(GNUInstallDirs)
+
   configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/pcg-cppConfig.cmake.in
     "${CMAKE_CURRENT_BINARY_DIR}/pcg-cppConfig.cmake"
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/pcg-cpp
@@ -60,9 +63,8 @@ if(PCG_CPP_INSTALL)
   )
 
   install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/pcg_random.hpp"
-                "${CMAKE_CURRENT_SOURCE_DIR}/include/pcg_extra.hpp"
-                "${CMAKE_CURRENT_SOURCE_DIR}/include/pcg_uin128.hpp"
-          TYPE INCLUDE
+                "${CMAKE_CURRENT_SOURCE_DIR}/include/pcg_extras.hpp"
+                "${CMAKE_CURRENT_SOURCE_DIR}/include/pcg_uint128.hpp"
           DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
   install(EXPORT pcg-cppTargets
