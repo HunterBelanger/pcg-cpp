@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.11)
 
 project(pcg-cpp
-  VERSION "0.2.1"
+  VERSION "0.98.1"
   DESCRIPTION "PCG random number generator."
   LANGUAGES CXX
 )
@@ -9,8 +9,8 @@ project(pcg-cpp
 include(CMakePackageConfigHelpers)
 
 # Add options
-option(PCG_CPP_TESTS "Build PCG tests" OFF)
-option(PCG_CPP_EXAMPLES "Build PCG examples" OFF)
+option(PCG_CPP_TESTS "Build tests" OFF)
+option(PCG_CPP_EXAMPLES "Build examples" OFF)
 option(PCG_CPP_INSTALL "Install PCG-CPP" ON)
 
 add_library(PCG_CXX INTERFACE)
